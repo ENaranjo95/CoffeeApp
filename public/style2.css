@@ -1,0 +1,73 @@
+*{
+  box-sizing: border-box;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+body{
+  font-size: 20px;
+  color: white;
+  background-color: black;
+  font-family: 'Wendy One', sans-serif;
+  text-align: center;
+}
+header{
+  height: 200px;
+  padding: 2% 0 2% 0;
+}
+header section{
+  height: 100px;
+  width: 30%;
+  float: left;
+}
+.back{
+  padding: 15px 0 0 40px;
+  text-align: left;
+}
+.back a{
+  margin-top: 20px;
+  font-size: 2.5rem;
+  color: white;
+  text-decoration: none;
+}
+header h1{
+  margin: 0;
+  font-size: 5rem;
+}
+.container{
+  width: 40%;
+  margin: 20px auto;
+}
+.container form{
+  text-align: left;
+}
+.container select{
+ margin-top: 20px;
+ margin-bottom: 20px;
+ border: none;
+ font-size: 14px;
+ height: 40px;
+ background-color: white;
+ color: black;
+}
+#customer{
+  font-size: 2rem;
+  width: 300px;
+  display: block;
+}
+#other{
+  font-size: 2rem;
+  width: 300px;
+  display: block;
+}
+#submit{
+  height: 80px;
+  width: 200px;
+  margin-top: 20px;
+  font-size: 1.5rem;
+}

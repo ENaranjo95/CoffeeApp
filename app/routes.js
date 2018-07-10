@@ -7,8 +7,12 @@ module.exports = function(app, passport, db) {
         res.render('index.ejs');
     });
 
-    app.get('/notAFan', function(req, res) {
-        res.render('notAFan.ejs');
+    app.get('/menu', function(req, res) {
+        res.render('menu.ejs');
+    });
+
+    app.get('/order', function(req, res) {
+        res.render('order.ejs');
     });
 
     // PROFILE SECTION =========================
@@ -30,19 +34,21 @@ module.exports = function(app, passport, db) {
 
 // message board routes ===============================================================
 
-    app.post('/messages', (req, res) => {
-      db.collection('messages').save({name: req.body.name, msg: req.body.msg, thumbUp: 0, song:req.body.song}, (err, result) => {
+    // This is the collection for customer orders
+    app.post('/cashier', (req, res) => {
+      db.collection('messages').save({type:req.body.type, size: req.body.size, quantity: req.body.quantity, other:req.body.other, name:req.body.name, complete: false }, (err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
-        res.redirect('/profile')
+        res.redirect('/menu')
       })
     })
 
-    app.put('/messages', (req, res) => {
+    // For barista to check order complete
+    app.put('/barista', (req, res) => {
       db.collection('messages')
-      .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
+      .findOneAndUpdate({type:req.body.type, size: req.body.size, quantity: req.body.quantity, other:req.body.other, name:req.body.name, complete: false }, {
         $set: {
-          thumbUp:req.body.thumbUp + 1
+          complete: true
         }
       }, {
         sort: {_id: -1},
@@ -53,23 +59,9 @@ module.exports = function(app, passport, db) {
       })
     })
 
-    app.put('/messages2', (req, res) => {
-      db.collection('messages')
-      .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
-        $set: {
-          thumbUp: req.body.thumbUp - 1
-        }
-      }, {
-        sort: {_id: -1},
-        upsert: true
-      }, (err, result) => {
-        if (err) return res.send(err)
-        res.send(result)
-      })
-    })
-
-    app.delete('/messages', (req, res) => {
-      db.collection('messages').findOneAndDelete({name: req.body.name, msg: req.body.msg}, (err, result) => {
+    // Will delete from customerOrder collections
+    app.delete('/remove', (req, res) => {
+      db.collection('messages').findOneAndDelete({name:req.body.name , type:req.body.type}, (err, result) => {
         if (err) return res.send(500, err)
         res.send('Message deleted!')
       })

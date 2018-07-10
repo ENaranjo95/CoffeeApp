@@ -1,0 +1,50 @@
+*{
+  box-sizing: border-box;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+body{
+  font-size: 20px;
+  color: white;
+  background-color: black;
+  font-family: 'Wendy One', sans-serif;
+  text-align: center;
+}
+header{
+  height: 200px;
+  padding: 2% 0 2% 0;
+}
+header section{
+  height: 100px;
+  width: 30%;
+  float: left;
+}
+.back{
+  padding: 15px 0 0 40px;
+  text-align: left;
+}
+.back a{
+  margin-top: 20px;
+  font-size: 2.5rem;
+  color: white;
+  text-decoration: none;
+}
+header h1{
+  margin: 0;
+  font-size: 5rem;
+}
+.container{
+  clear: both;
+}
+
+img{
+  height: 250px;
+  width: 25%;
+  background-color: white;
+}

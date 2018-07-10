@@ -2,73 +2,72 @@
 <html>
 
 <head>
-  <title>21 Savage Fan Site</title>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <title>Barista Page</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
+  <link rel="stylesheet" href="style4.css">
 </head>
 
 <body>
-  <div class="container">
+  <header class="clearfix">
+    <section>
+      <h3>Barista</h3>
+      <% if (user.local.email) { %>
+        <p>
+          <strong>id</strong>:
+          <%= user._id %><br>
+            <strong>email</strong>:
+            <%= user.local.email %><br>
+        </p>
 
-    <div class="page-header text-center">
-      <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    </div>
+    </section>
+    <section class="links">
+      <a href="/unlink/local" class="btn btn-default">Unlink</a>
+      <% } else { %>
+        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+        <% } %>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </section>
 
-    <div class="row">
 
-      <!-- LOCAL INFORMATION -->
-      <div class="col-sm-6">
-        <div class="well">
-          <h3><span class="fa fa-user"></span> Local</h3>
+  </header>
+  <section class="container clearfix">
+    <section class="display">
+      <h3>Orders</h3>
+      <ul class="messages">
+        <% for(var i=0; i<messages.length; i++) {%>
+          <% if(messages[i].complete === false) {%>
+          <li class="message">
+            <span><%= messages[i].name %></span>
+            <span><%= messages[i].type %></span>
+            <span><%= messages[i].size %></span>
+            <span><%= messages[i].quantity %></span>
+            <span><%= messages[i].other %></span>
+            <span><i class="fas fa-check"></i></span>
+          </li>
+          <% } %>
+          <% } %>
+      </ul>
+    </section>
 
-          <% if (user.local.email) { %>
-            <p>
-              <strong>id</strong>:
-              <%= user._id %><br>
-                <strong>email</strong>:
-                <%= user.local.email %><br>
-                  <strong>password</strong>:
-                  <%= user.local.password %>
-            </p>
-
-            <a href="/unlink/local" class="btn btn-default">Unlink</a>
-            <% } else { %>
-              <a href="/connect/local" class="btn btn-default">Connect Local</a>
-              <% } %>
-
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <h3>Messages</h3>
-        <ul class="messages">
-          <% for(var i=0; i<messages.length; i++) {%>
-            <li class="message">
-              <span><%= messages[i].name %></span>
-              <span><%= messages[i].msg %></span>
-              <span><%= messages[i].thumbUp %></span>
-              <span><%= messages[i].song %></span>
-              <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-              <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
-              <span><i class="fa fa-trash" aria-hidden="true"></i></span>
-            </li>
-            <% } %>
-        </ul>
-
-        <h2>Add a message</h2>
-        <% if (user.local.email) { %>
-          <form action="/messages" method="POST">
-            <input type="text" value="<%= user.local.email %>" name="name">
-            <input type="text" placeholder="message" name="msg">
-            <input type="text" placeholder="favorite song" name="song" value="">
-            <button type="submit">Submit</button>
-          </form>
-      </div>
-      <% } %>
-
-    </div>
-
+    <section class="display">
+      <h2>Complete</h2>
+      <ul class="messages">
+        <% for(var i=0; i<messages.length; i++) {%>
+          <% if(messages[i].complete === true) {%>
+          <li class="message">
+            <span><%= messages[i].name %></span>
+            <span><%= messages[i].type %></span>
+            <span><%= messages[i].size %></span>
+            <span><%= messages[i].quantity %></span>
+            <span><%= messages[i].other %></span>
+            <span><i class="fas fa-trash"></i></span>
+          </li>
+          <% } %>
+          <% } %>
+      </ul>
+    </section>
+    <footer></footer>
     <script src="main.js"></script>
 
 </body>

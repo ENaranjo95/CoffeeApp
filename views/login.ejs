@@ -2,47 +2,44 @@
 <html>
 
 <head>
-  <title>21 Savage Fan Site</title>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <title>Barista Login Page</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style3.css">
+  <link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
 </head>
 
 <body>
-  <div class="container">
-    <div class="col-sm-6 col-sm-offset-3">
+  <section class="container clearfix">
+    <section class="user">
 
       <h1><span class="fa fa-sign-in"></span> Login</h1>
 
       <% if (message.length > 0) { %>
-        <div class="alert alert-danger">
+        <section class="alert alert-danger">
           <%= message %>
-        </div>
+        </section>
         <% } %>
 
           <!-- LOGIN FORM -->
           <form action="/login" method="post">
-            <img src="img/login.jpg" alt="user login icon" class="icon">
-            <div class="form-group">
-              <label>Email</label>
-              <input type="text" class="form-control" name="email">
-            </div>
-            <div class="form-group">
-              <label>Password</label>
-              <input type="password" class="form-control" name="password">
-            </div>
+            <section class="form">
+              <label id="email">Email:</label>
+              <input type="text" class="formInput" name="email" placeholder="Enter your email:">
+            </section>
+            <section class="form">
+              <label>Password:</label>
+              <input type="password" class="formInput" name="password" placeholder="Enter your password:">
+            </section>
 
             <button type="submit" class="btn btn-warning btn-lg">Login</button>
           </form>
-
-          <hr>
 
           <p>Need an account? <a href="/signup">Signup</a></p>
           <p>Or go <a href="/">home</a>.</p>
 
 
-    </div>
-  </div>
+    </section>
+  </section>
 </body>
 
 </html>

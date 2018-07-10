@@ -1,20 +1,37 @@
+*{
+  box-sizing: border-box;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
 body{
-  padding-top:80px;
-  word-wrap:break-word;
-
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  font-family: 'Wendy One', sans-serif;
 }
+.container{
+  padding: 5% 5% 5% 5%;
+}
+
+.role{
+  width: 40%;
+  margin: 0 5% 0 5%;
+  text-align: center;
+  float: left;
+}
+h1{
+  font-size: 2.5rem;
+}
+
 img{
-  height: 200px;
-}
-
-.icon{
-  border-radius: 146px 146px 146px 146px;
-  width: 200px;
-  border:  4px dashed black;
-}
-
-.kanye{
-  background-image: url(img/kanyeShrug.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 70%;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: center;
 }

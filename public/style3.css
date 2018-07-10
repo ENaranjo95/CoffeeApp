@@ -1,0 +1,57 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Wendy One', sans-serif;
+  text-align: center;
+}
+
+.container {
+  margin-top: 150px;
+}
+
+.fa-sign-in {
+  font-size: 100px;
+}
+
+.user h1 {
+  font-size: 40px;
+}
+
+.alert-danger{
+  background-color: red;
+  color: black;
+}
+
+.formInput {
+  padding: 0 30px 0 5px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.form label {
+  font-size: 30px;
+}
+
+.btn-warning {
+  margin-top: 20px;
+  padding: 15px 30px;
+  border-radius: 20px;
+  font-size: 25px;
+}
+
+img {
+  width: 22%;
+  display: inline-block;
+  float: left;
+  margin: 0 auto;
+}
+
+p a {
+  color: grey;
+  text-decoration: none;
+  font-size: 25px;
+}

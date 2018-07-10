@@ -1,17 +1,24 @@
-# My Awesome Project
-This project is a user login authorization for our users to leave a message and favorite song so hopefully one day 21 Savage will be able to read their message and reach out to them.
+# Full-Stack Coffee Application
+
+This is a full-stack website that tracks live orders from the cashier screen to the display on the barista screen, and can check these orders for completeness.
 
 ## How It's Made:
 
 **Tech used:** HTML, CSS, JavaScript, Node-JS, MongoDB, Express and Passport
 
-The object of this project was to fix the thumbs up and thumbs down feature, and to make edits to each of our ejs. In the index.ejs we included an anchor tag if our user navigates to our page and is not a fan of 21 Savage, they can click on this link (Not A Fan?). On the login.ejs page we included a image of our favorite clipart of 21 Savage. On our signup.ejs page we included an input where users could enter their phone number if they would like to contacted by 21 Savage. On the profile.ejs we fixed the thumb Up and thumbs Down feature to add or subtract the value from teh same span. Also we included an input for the user to add their favorite 21 Savage songs, or collaboration of a song (Ex. Psycho - Post Malone ft. 21 Savage).
+The objective of this project was to create a coffee app that cashiers can send live orders to baristas. The baristas can see the live orders, and after completing the order they can click on the check icon to send the live order to the completed section of orders on the same screen.
+
+How this is built is with a form submission from the cashier, when the cashier clicks on the submit button, the values from the input tags and select tags are sent to the server, stored in the database and then is rendered to the barista page.
+
+On the barista page is the email and id number of the barista logged, and a list of live orders and complete orders. The barista will receive the live orders. Upon completion the barista can click on the check icon, setting the boolean value from false to true and send the order to the complete order list.
+
+# Optimization
+
+Still refactoring the app to include complex items
 
 ## Lessons Learned:
 
-I learned how to navigate through our profile.ejs to target the correct childNodes when we want to alter counts or messages when we click on a button or icon. This is important so our application doesn't break after one use. When we add more features that can alter the count or message of an input, its important we are pulling the correct innerText form the childNodes or you will end up targeting the wrong span and breaking your application.
 
-To navigate to through our profile and I console.log(thumbUp) and navigated to the objects to find the correct childNodes following this path (this.parentNode.parentNode.childNodes[i].innerText). I looked for the property (parentNode) for each parentNode object and then the proprty childNode to target the correct index number in the array corresponding to the correct span. I verified to have the correct span by checking for the property innerText and check to see if the value was the correct value displayed in the DOM.
 
 ## Installation
 

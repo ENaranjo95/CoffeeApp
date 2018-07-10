@@ -1,5 +1,6 @@
 var check = document.getElementsByClassName("fa-check");
-var trash = document.getElementsByClassName("fa-trash")
+var trash = document.getElementsByClassName("fa-trash");
+var synth = window.speechSynthesis;
 
 Array.from(check).forEach(function(element) {
   console.log(check)
@@ -10,6 +11,8 @@ Array.from(check).forEach(function(element) {
     const quantity = this.parentNode.parentNode.childNodes[7].innerText
     const other = this.parentNode.parentNode.childNodes[9].innerText
     const check = this.parentNode.parentNode.childNodes[11].innerText
+    var utterThis = new SpeechSynthesisUtterance(name)
+    synth.speak(utterThis)
     fetch('barista', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
@@ -18,8 +21,7 @@ Array.from(check).forEach(function(element) {
         'type': type,
         'size': size,
         'quantity': quantity,
-        'other':other,
-        'complete': false
+        'other':other
       })
     })
     .then(response => {

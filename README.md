@@ -14,7 +14,7 @@ On the barista page is the email and id number of the barista logged, and a list
 
 # Optimization
 
-Still refactoring the app to include complex items
+Still refactoring the app to include more items to the menu and better user interface.
 
 ## Lessons Learned:
 
